@@ -1,0 +1,17 @@
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.csproj.AssemblyReference.cache
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.Formularios.frmRegistroCliente.resources
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.Properties.Resources.resources
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.csproj.GenerateResource.cache
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.csproj.CoreCompileInputs.cache
+C:\Users\walte\source\repos\SisReservas\SisReservas\bin\Debug\SisReservas.exe.config
+C:\Users\walte\source\repos\SisReservas\SisReservas\bin\Debug\SisReservas.exe
+C:\Users\walte\source\repos\SisReservas\SisReservas\bin\Debug\SisReservas.pdb
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.exe
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.pdb
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.exe.config
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.Formularios.frmLogin.resources
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.Formularios.frmRegistroUsuario.resources
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.Formularios.frmDashboardAdmin.resources
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.Formularios.frmDashboardCliente.resources
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.Formularios.frmDashboardRecepcionista.resources
+C:\Users\walte\source\repos\SisReservas\SisReservas\obj\Debug\SisReservas.Formularios.frmReservarSala.resources
