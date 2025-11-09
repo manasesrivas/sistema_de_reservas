@@ -49,7 +49,7 @@ namespace SisReservas.Formularios
         {
             using (SqlConnection con = new SqlConnection(Conexion.cadena))
             {
-                string query = @"SELECT r.Id, s.Nombre AS Sala, r.FechaInicio, r.FechaFin, r.Tipo, r.Estado
+                string query = @"SELECT s.Nombre AS Sala, r.FechaInicio, r.FechaFin, r.Tipo, r.Estado
                                  FROM Reservas r
                                  JOIN Salas s ON r.SalaId = s.Id_salas
                                  WHERE r.ClienteId = @id";

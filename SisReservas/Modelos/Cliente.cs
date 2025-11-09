@@ -11,7 +11,7 @@ namespace SisReservas.Modelos
         public int Id_cliente { get; set; }
         public string Nombre { get; set; }
         public string Correo { get; set; }
-        public string Contraseña { get; set; }
+        public string Password { get; set; }
         public string Dui { get; set; }
 
         public override string ToString()

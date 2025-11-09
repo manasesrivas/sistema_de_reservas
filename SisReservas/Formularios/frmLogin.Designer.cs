@@ -35,9 +35,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.linkRegistroCliente = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +46,7 @@
             // 
             this.txtContraseña.Location = new System.Drawing.Point(223, 147);
             this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(216, 20);
             this.txtContraseña.TabIndex = 0;
             // 
@@ -105,15 +106,15 @@
             this.panel1.Size = new System.Drawing.Size(573, 279);
             this.panel1.TabIndex = 5;
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(195, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 41);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "User Login";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(219, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 22);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Contraseña";
             // 
             // label2
             // 
@@ -125,15 +126,15 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Correo";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(219, 106);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 22);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Contraseña";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(195, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(238, 41);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "User Login";
             // 
             // frmLogin
             // 

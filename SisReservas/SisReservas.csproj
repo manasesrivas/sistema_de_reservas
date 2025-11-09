@@ -97,6 +97,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\Conexion.cs" />
+    <Compile Include="Servicios\Seguridad.cs" />
     <EmbeddedResource Include="Formularios\frmDashboardAdmin.resx">
       <DependentUpon>frmDashboardAdmin.cs</DependentUpon>
     </EmbeddedResource>

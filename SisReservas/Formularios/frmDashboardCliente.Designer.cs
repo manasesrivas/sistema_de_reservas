@@ -52,9 +52,9 @@
             // dgvReservas
             // 
             this.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReservas.Location = new System.Drawing.Point(24, 102);
+            this.dgvReservas.Location = new System.Drawing.Point(60, 102);
             this.dgvReservas.Name = "dgvReservas";
-            this.dgvReservas.Size = new System.Drawing.Size(594, 201);
+            this.dgvReservas.Size = new System.Drawing.Size(538, 201);
             this.dgvReservas.TabIndex = 1;
             // 
             // btnNuevaReserva
@@ -84,7 +84,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(199, 71);
+            this.label1.Location = new System.Drawing.Point(217, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(218, 23);
             this.label1.TabIndex = 1;

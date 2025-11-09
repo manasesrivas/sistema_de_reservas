@@ -38,6 +38,7 @@
             this.dgvRecursos = new System.Windows.Forms.DataGridView();
             this.Reservas = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtBuscarReserva = new System.Windows.Forms.TextBox();
             this.btnBuscarReserva = new System.Windows.Forms.Button();
             this.cbEstadoReserva = new System.Windows.Forms.ComboBox();
             this.btnCambiarEstado = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.Clientes = new System.Windows.Forms.TabPage();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.txtBuscarReserva = new System.Windows.Forms.TextBox();
             this.TabControl.SuspendLayout();
             this.Sesion.SuspendLayout();
             this.Salas.SuspendLayout();
@@ -102,7 +102,7 @@
             // 
             // btnRegistrarUsuario
             // 
-            this.btnRegistrarUsuario.Location = new System.Drawing.Point(259, 142);
+            this.btnRegistrarUsuario.Location = new System.Drawing.Point(24, 57);
             this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
             this.btnRegistrarUsuario.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrarUsuario.TabIndex = 0;
@@ -174,6 +174,13 @@
             this.panel1.Size = new System.Drawing.Size(751, 46);
             this.panel1.TabIndex = 9;
             // 
+            // txtBuscarReserva
+            // 
+            this.txtBuscarReserva.Location = new System.Drawing.Point(10, 19);
+            this.txtBuscarReserva.Name = "txtBuscarReserva";
+            this.txtBuscarReserva.Size = new System.Drawing.Size(162, 20);
+            this.txtBuscarReserva.TabIndex = 7;
+            // 
             // btnBuscarReserva
             // 
             this.btnBuscarReserva.Location = new System.Drawing.Point(178, 19);
@@ -238,13 +245,13 @@
             this.Usuarios.Padding = new System.Windows.Forms.Padding(3);
             this.Usuarios.Size = new System.Drawing.Size(751, 314);
             this.Usuarios.TabIndex = 4;
-            this.Usuarios.Text = "Usuarios";
+            this.Usuarios.Text = "Recepcionistas";
             this.Usuarios.UseVisualStyleBackColor = true;
             // 
             // dgvUsuarios
             // 
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(6, 65);
+            this.dgvUsuarios.Location = new System.Drawing.Point(6, 27);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.Size = new System.Drawing.Size(480, 243);
             this.dgvUsuarios.TabIndex = 3;
@@ -267,13 +274,6 @@
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.Size = new System.Drawing.Size(428, 242);
             this.dgvClientes.TabIndex = 0;
-            // 
-            // txtBuscarReserva
-            // 
-            this.txtBuscarReserva.Location = new System.Drawing.Point(10, 19);
-            this.txtBuscarReserva.Name = "txtBuscarReserva";
-            this.txtBuscarReserva.Size = new System.Drawing.Size(162, 20);
-            this.txtBuscarReserva.TabIndex = 7;
             // 
             // frmDashboardAdmin
             // 

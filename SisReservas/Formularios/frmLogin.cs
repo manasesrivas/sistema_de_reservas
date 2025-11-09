@@ -22,14 +22,19 @@ namespace SisReservas.Formularios
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string correo = txtCorreo.Text.Trim();
+            string claveIngresada = txtContraseña.Text.Trim();
+            string claveHash = Seguridad.HashPassword(claveIngresada); // 🔐 Hashea la contraseña
+
             using (SqlConnection con = new SqlConnection(Conexion.cadena))
             {
                 con.Open();
 
-                string queryCliente = "SELECT Id_cliente FROM Cliente WHERE Correo=@correo AND Contraseña=@pass";
+                // 🔍 Validación para Cliente
+                string queryCliente = "SELECT Id_cliente FROM Cliente WHERE Correo=@correo AND Password=@pass";
                 SqlCommand cmdCliente = new SqlCommand(queryCliente, con);
-                cmdCliente.Parameters.AddWithValue("@correo", txtCorreo.Text);
-                cmdCliente.Parameters.AddWithValue("@pass", txtContraseña.Text);
+                cmdCliente.Parameters.AddWithValue("@correo", correo);
+                cmdCliente.Parameters.AddWithValue("@pass", claveHash);
                 var idCliente = cmdCliente.ExecuteScalar();
 
                 if (idCliente != null)
@@ -39,10 +44,11 @@ namespace SisReservas.Formularios
                     return;
                 }
 
-                string queryUsuario = "SELECT Id_usuario, Rol FROM Usuario WHERE Correo=@correo AND Contraseña=@pass";
+                // 🔍 Validación para Usuario
+                string queryUsuario = "SELECT Id_usuario, Rol FROM Usuario WHERE Correo=@correo AND Password=@pass";
                 SqlCommand cmdUsuario = new SqlCommand(queryUsuario, con);
-                cmdUsuario.Parameters.AddWithValue("@correo", txtCorreo.Text);
-                cmdUsuario.Parameters.AddWithValue("@pass", txtContraseña.Text);
+                cmdUsuario.Parameters.AddWithValue("@correo", correo);
+                cmdUsuario.Parameters.AddWithValue("@pass", claveHash);
                 SqlDataReader reader = cmdUsuario.ExecuteReader();
 
                 if (reader.Read())
@@ -64,11 +70,12 @@ namespace SisReservas.Formularios
             }
         }
 
+
         private void linkRegistroCliente_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmRegistroCliente registro = new frmRegistroCliente();
             registro.Show();
-            this.Hide(); // Oculta frmLogin mientras se muestra frmRegistroCliente
+            this.Hide(); 
         }
 
       

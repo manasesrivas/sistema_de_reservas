@@ -34,7 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtDui = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -92,12 +92,12 @@
             this.txtCorreo.Size = new System.Drawing.Size(185, 20);
             this.txtCorreo.TabIndex = 3;
             // 
-            // txtContraseña
+            // txtPassword
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(422, 194);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(185, 20);
-            this.txtContraseña.TabIndex = 4;
+            this.txtPassword.Location = new System.Drawing.Point(422, 194);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(185, 20);
+            this.txtPassword.TabIndex = 4;
             // 
             // txtDui
             // 
@@ -168,7 +168,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDui);
-            this.Controls.Add(this.txtContraseña);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.panel1);
@@ -189,7 +189,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtDui;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
