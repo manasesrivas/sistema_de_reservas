@@ -2,7 +2,7 @@ CREATE TABLE Cliente (
     Id_cliente INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL,
-    Contraseña NVARCHAR(100) NOT NULL,
+    Telefono VARCHAR(10) NOT NULL,
     Dui VARCHAR(20) NOT NULL
 );
 
