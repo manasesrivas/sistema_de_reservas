@@ -27,7 +27,7 @@ CREATE TABLE Recursos (
     Nombre NVARCHAR(100) NOT NULL,
     Tipo NVARCHAR(100) NOT NULL,
     Costo DECIMAL(10,2) NOT NULL,
-    Cantidad DECIMAL(1,0)
+    Cantidad DECIMAL(4,0)
 );
 
 CREATE TABLE Reservas (
