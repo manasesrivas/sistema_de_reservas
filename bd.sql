@@ -11,7 +11,7 @@ CREATE TABLE Usuario (
     Id_usuario INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL,
-    Contraseña NVARCHAR(100) NOT NULL,
+    Password NVARCHAR(100) NOT NULL,
     Rol VARCHAR(20) NOT NULL
 );
 
