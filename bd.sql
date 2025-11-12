@@ -2,7 +2,7 @@ CREATE TABLE Cliente (
     Id_cliente INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL,
-    Contraseña NVARCHAR(100) NOT NULL,
+    ContraseÃ±a NVARCHAR(100) NOT NULL,
     Dui VARCHAR(20) NOT NULL
 );
 
@@ -11,7 +11,7 @@ CREATE TABLE Usuario (
     Id_usuario INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL,
-    Contraseña NVARCHAR(100) NOT NULL,
+    ContraseÃ±a NVARCHAR(100) NOT NULL,
     Rol VARCHAR(20) NOT NULL
 );
 
@@ -26,7 +26,8 @@ CREATE TABLE Recursos (
     Id_recursos INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Tipo NVARCHAR(100) NOT NULL,
-    Costo DECIMAL(10,2) NOT NULL
+    Costo DECIMAL(10,2) NOT NULL,
+    Cantidad DECIMAL(1,0)
 );
 
 CREATE TABLE Reservas (
