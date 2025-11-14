@@ -53,3 +53,7 @@ CREATE TABLE ReservaRecurso (
     CONSTRAINT FK_ReservaRecurso_Recurso FOREIGN KEY (RecursoId) REFERENCES Recursos(Id_recursos)
 );
 GO
+
+-- para agregar un super usuario    
+INSERT INTO Usuarios(Nombre, Correo, Telefono, Password) VALUES('admin', 'admin@gmail.com', '2727-2828', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918')
+
