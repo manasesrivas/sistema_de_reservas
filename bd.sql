@@ -36,7 +36,7 @@ CREATE TABLE Reservas (
     Id_reserva INT PRIMARY KEY IDENTITY(1,1),
     SalaId INT NOT NULL,
     ClienteId INT NOT NULL,
-    FechaRealizado DATETIME NOT NULL,
+    FechaReservado DATETIME NOT NULL,
     Estado NVARCHAR(20) NOT NULL, 
     CONSTRAINT FK_Reservas_Sala FOREIGN KEY (SalaId) REFERENCES Salas(Id_salas),
     CONSTRAINT FK_Reservas_Cliente FOREIGN KEY (ClienteId) REFERENCES Cliente(Id_cliente)
