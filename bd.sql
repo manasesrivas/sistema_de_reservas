@@ -1,4 +1,4 @@
-CREATE TABLE Cliente (
+CREATE TABLE Clientes (
     Id_cliente INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE Cliente (
 );
 
 
-CREATE TABLE Usuario (
+CREATE TABLE Usuarios (
     Id_usuario INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Correo NVARCHAR(100) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE Usuario (
 );
 
 CREATE TABLE Salas (
-    Id_salas INT PRIMARY KEY IDENTITY(1,1),
+    Id_sala INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Capacidad INT NOT NULL,
     Precio DECIMAL() NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE Salas (
 );
 
 CREATE TABLE Recursos (
-    Id_recursos INT PRIMARY KEY IDENTITY(1,1),
+    Id_recurso INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Tipo NVARCHAR(100) NOT NULL,
     Costo DECIMAL(10,2) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE Recursos (
 );
 
 CREATE TABLE Reservas (
-    Id INT PRIMARY KEY IDENTITY(1,1),
+    Id_reserva INT PRIMARY KEY IDENTITY(1,1),
     SalaId INT NOT NULL,
     ClienteId INT NOT NULL,
     FechaInicio DATETIME NOT NULL,
@@ -46,6 +46,7 @@ GO
 
 
 CREATE TABLE ReservaRecurso (
+    Id INT PRYMARY KEY IDENTITY(1,1),
     ReservaId INT NOT NULL,
     RecursoId INT NOT NULL,
     PRIMARY KEY (ReservaId, RecursoId),
