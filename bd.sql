@@ -1,3 +1,8 @@
+create database karaoke
+
+use karaoke
+
+
 CREATE TABLE Clientes (
     Id_cliente INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
@@ -10,6 +15,7 @@ CREATE TABLE Clientes (
 CREATE TABLE Usuarios (
     Id_usuario INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
+	Telefono VARCHAR(10) NOT NULL,
     Correo NVARCHAR(100) NOT NULL,
     Password NVARCHAR(100) NOT NULL,
     Dui VARCHAR(20) NOT NULL,
@@ -20,7 +26,7 @@ CREATE TABLE Salas (
     Id_sala INT PRIMARY KEY IDENTITY(1,1),
     Nombre NVARCHAR(100) NOT NULL,
     Capacidad INT NOT NULL,
-    Precio DECIMAL() NOT NULL,
+    Precio DECIMAL(3,1) NOT NULL,
     Disponible BIT NOT NULL
 );
 
@@ -38,22 +44,19 @@ CREATE TABLE Reservas (
     ClienteId INT NOT NULL,
     FechaReservado DATETIME NOT NULL,
     Estado NVARCHAR(20) NOT NULL, 
-    CONSTRAINT FK_Reservas_Sala FOREIGN KEY (SalaId) REFERENCES Salas(Id_salas),
-    CONSTRAINT FK_Reservas_Cliente FOREIGN KEY (ClienteId) REFERENCES Cliente(Id_cliente)
+    CONSTRAINT FK_Reservas_Sala FOREIGN KEY (SalaId) REFERENCES Salas(Id_sala),
+    CONSTRAINT FK_Reservas_Cliente FOREIGN KEY (ClienteId) REFERENCES Clientes(Id_cliente)
 );
 GO
 
 
 CREATE TABLE ReservaRecurso (
-    Id INT PRYMARY KEY IDENTITY(1,1),
+    Id INT PRiMARY KEY IDENTITY(1,1),
     ReservaId INT NOT NULL,
     RecursoId INT NOT NULL,
-    PRIMARY KEY (ReservaId, RecursoId),
-    CONSTRAINT FK_ReservaRecurso_Reserva FOREIGN KEY (ReservaId) REFERENCES Reservas(Id),
-    CONSTRAINT FK_ReservaRecurso_Recurso FOREIGN KEY (RecursoId) REFERENCES Recursos(Id_recursos)
+    CONSTRAINT FK_ReservaRecurso_Reserva FOREIGN KEY (ReservaId) REFERENCES Reservas(Id_reserva),
+    CONSTRAINT FK_ReservaRecurso_Recurso FOREIGN KEY (RecursoId) REFERENCES Recursos(Id_recurso)
 );
 GO
 
 -- para agregar un super usuario    
-INSERT INTO Usuarios(Nombre, Correo, Telefono, Password) VALUES('admin', 'admin@gmail.com', '2727-2828', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918')
-
