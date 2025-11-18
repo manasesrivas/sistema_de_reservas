@@ -15,7 +15,7 @@ namespace sistema_de_reservas.Core.Dao.ClasesDao
             try
             {
                 Con = OpenDb();
-                command = new SqlCommand(@"DELETE FROM Recursos WHERE Id_recursos = @id_recurso;", Con);
+                command = new SqlCommand(@"DELETE FROM Recursos WHERE Id_recurso = @id_recurso;", Con);
                 command.Parameters.Add("@id_recurso", SqlDbType.Int).Value = idRecurso;
                 return command.ExecuteNonQuery() == 1;
             }
@@ -38,7 +38,7 @@ namespace sistema_de_reservas.Core.Dao.ClasesDao
             try
             {
                 Con = OpenDb();
-                string sql = @"SELECT Id_recursos, Nombre, Tipo, Costo, Cantidad FROM Recursos";
+                string sql = @"SELECT Id_recurso, Nombre, Tipo, Costo, Cantidad FROM Recursos";
 
                 if (!string.IsNullOrWhiteSpace(filtro))
                 {
@@ -94,7 +94,7 @@ namespace sistema_de_reservas.Core.Dao.ClasesDao
                 Con = OpenDb();
 
                 command = new SqlCommand(@"
-                    SELECT Id_Recursos, Nombre, Tipo, Costo , Cantidad
+                    SELECT Id_Recurso, Nombre, Tipo, Costo , Cantidad
                     FROM Recursos
                     WHERE Id_Recursos = @idRecurso;", Con);
 
@@ -126,7 +126,7 @@ namespace sistema_de_reservas.Core.Dao.ClasesDao
 
                 command = new SqlCommand(@"
                     INSERT INTO Recursos (Nombre, Tipo, Costo, Cantidad)
-                    OUTPUT INSERTED.Id_recursos
+                    OUTPUT INSERTED.Id_recurso
                     VALUES (@nombre, @tipo, @costo, @cantidad);
                     SELECT SCOPE_IDENTITY();", Con);
 

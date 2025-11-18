@@ -50,9 +50,9 @@
             button19 = new Button();
             panel4 = new Panel();
             textBox4 = new TextBox();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            buttonEliminarSala = new Button();
+            buttonEditarSala = new Button();
+            buttonAgregarSala = new Button();
             dataGridViewSalas = new DataGridView();
             tabPage3 = new TabPage();
             button18 = new Button();
@@ -65,7 +65,6 @@
             tabPage4 = new TabPage();
             button10 = new Button();
             button11 = new Button();
-            button12 = new Button();
             dataGridViewReservas = new DataGridView();
             tabPage5 = new TabPage();
             button17 = new Button();
@@ -80,10 +79,11 @@
             panel1 = new Panel();
             textBox1 = new TextBox();
             button3 = new Button();
-            button2 = new Button();
+            buttonEditarCliente = new Button();
             button1 = new Button();
             dataGridViewClientes = new DataGridView();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            button12 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -143,9 +143,9 @@
             tabPage2.BackColor = Color.FromArgb(33, 33, 33);
             tabPage2.Controls.Add(button19);
             tabPage2.Controls.Add(panel4);
-            tabPage2.Controls.Add(button4);
-            tabPage2.Controls.Add(button5);
-            tabPage2.Controls.Add(button6);
+            tabPage2.Controls.Add(buttonEliminarSala);
+            tabPage2.Controls.Add(buttonEditarSala);
+            tabPage2.Controls.Add(buttonAgregarSala);
             tabPage2.Controls.Add(dataGridViewSalas);
             tabPage2.Location = new Point(8, 46);
             tabPage2.Name = "tabPage2";
@@ -185,38 +185,41 @@
             textBox4.Size = new Size(750, 58);
             textBox4.TabIndex = 0;
             // 
-            // button4
+            // buttonEliminarSala
             // 
-            button4.BackColor = Color.FromArgb(222, 16, 16);
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(2085, 311);
-            button4.Name = "button4";
-            button4.Size = new Size(120, 100);
-            button4.TabIndex = 6;
-            button4.UseVisualStyleBackColor = false;
+            buttonEliminarSala.BackColor = Color.FromArgb(222, 16, 16);
+            buttonEliminarSala.FlatStyle = FlatStyle.Flat;
+            buttonEliminarSala.Image = (Image)resources.GetObject("buttonEliminarSala.Image");
+            buttonEliminarSala.Location = new Point(2085, 311);
+            buttonEliminarSala.Name = "buttonEliminarSala";
+            buttonEliminarSala.Size = new Size(120, 100);
+            buttonEliminarSala.TabIndex = 6;
+            buttonEliminarSala.UseVisualStyleBackColor = false;
+            buttonEliminarSala.Click += buttonEliminarSala_Click;
             // 
-            // button5
+            // buttonEditarSala
             // 
-            button5.BackColor = Color.FromArgb(242, 84, 63);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.Location = new Point(2247, 311);
-            button5.Name = "button5";
-            button5.Size = new Size(120, 100);
-            button5.TabIndex = 5;
-            button5.UseVisualStyleBackColor = false;
+            buttonEditarSala.BackColor = Color.FromArgb(242, 84, 63);
+            buttonEditarSala.FlatStyle = FlatStyle.Flat;
+            buttonEditarSala.Image = (Image)resources.GetObject("buttonEditarSala.Image");
+            buttonEditarSala.Location = new Point(2247, 311);
+            buttonEditarSala.Name = "buttonEditarSala";
+            buttonEditarSala.Size = new Size(120, 100);
+            buttonEditarSala.TabIndex = 5;
+            buttonEditarSala.UseVisualStyleBackColor = false;
+            buttonEditarSala.Click += buttonEditarSala_Click;
             // 
-            // button6
+            // buttonAgregarSala
             // 
-            button6.BackColor = Color.FromArgb(156, 108, 254);
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Location = new Point(2396, 311);
-            button6.Name = "button6";
-            button6.Padding = new Padding(20);
-            button6.Size = new Size(120, 100);
-            button6.TabIndex = 4;
-            button6.UseVisualStyleBackColor = false;
+            buttonAgregarSala.BackColor = Color.FromArgb(156, 108, 254);
+            buttonAgregarSala.FlatStyle = FlatStyle.Popup;
+            buttonAgregarSala.Location = new Point(2396, 311);
+            buttonAgregarSala.Name = "buttonAgregarSala";
+            buttonAgregarSala.Padding = new Padding(20);
+            buttonAgregarSala.Size = new Size(120, 100);
+            buttonAgregarSala.TabIndex = 4;
+            buttonAgregarSala.UseVisualStyleBackColor = false;
+            buttonAgregarSala.Click += buttonAgregarSala_Click;
             // 
             // dataGridViewSalas
             // 
@@ -399,19 +402,6 @@
             button11.TextAlign = ContentAlignment.MiddleRight;
             button11.UseVisualStyleBackColor = false;
             // 
-            // button12
-            // 
-            button12.BackColor = Color.FromArgb(156, 108, 254);
-            button12.FlatStyle = FlatStyle.Popup;
-            button12.Image = Properties.Resources.date;
-            button12.Location = new Point(2396, 311);
-            button12.Name = "button12";
-            button12.Padding = new Padding(20);
-            button12.Size = new Size(120, 100);
-            button12.TabIndex = 4;
-            button12.UseVisualStyleBackColor = false;
-            button12.Click += button12_Click;
-            // 
             // dataGridViewReservas
             // 
             dataGridViewReservas.BackgroundColor = Color.FromArgb(33, 33, 33);
@@ -432,7 +422,7 @@
             dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
             dataGridViewReservas.DefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewReservas.Location = new Point(26, 448);
+            dataGridViewReservas.Location = new Point(0, 491);
             dataGridViewReservas.Name = "dataGridViewReservas";
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = Color.FromArgb(33, 33, 33);
@@ -561,7 +551,7 @@
             tabPage6.Controls.Add(button16);
             tabPage6.Controls.Add(panel1);
             tabPage6.Controls.Add(button3);
-            tabPage6.Controls.Add(button2);
+            tabPage6.Controls.Add(buttonEditarCliente);
             tabPage6.Controls.Add(button1);
             tabPage6.Controls.Add(dataGridViewClientes);
             tabPage6.Location = new Point(8, 46);
@@ -611,18 +601,19 @@
             button3.Size = new Size(120, 100);
             button3.TabIndex = 3;
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
-            // button2
+            // buttonEditarCliente
             // 
-            button2.BackColor = Color.FromArgb(242, 84, 63);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(2247, 311);
-            button2.Name = "button2";
-            button2.Size = new Size(120, 100);
-            button2.TabIndex = 2;
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            buttonEditarCliente.BackColor = Color.FromArgb(242, 84, 63);
+            buttonEditarCliente.FlatStyle = FlatStyle.Flat;
+            buttonEditarCliente.Image = (Image)resources.GetObject("buttonEditarCliente.Image");
+            buttonEditarCliente.Location = new Point(2247, 311);
+            buttonEditarCliente.Name = "buttonEditarCliente";
+            buttonEditarCliente.Size = new Size(120, 100);
+            buttonEditarCliente.TabIndex = 2;
+            buttonEditarCliente.UseVisualStyleBackColor = false;
+            buttonEditarCliente.Click += buttonEditarCliente_Click;
             // 
             // button1
             // 
@@ -679,6 +670,20 @@
             sqlCommand1.CommandTimeout = 30;
             sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
+            // button12
+            // 
+            button12.BackColor = Color.FromArgb(156, 108, 254);
+            button12.FlatStyle = FlatStyle.Popup;
+            button12.Image = Properties.Resources.date;
+            button12.Location = new Point(2396, 311);
+            button12.Name = "button12";
+            button12.Padding = new Padding(20);
+            button12.Size = new Size(120, 100);
+            button12.TabIndex = 4;
+            button12.Text = "x";
+            button12.UseVisualStyleBackColor = false;
+            button12.Click += button12_Click;
+            // 
             // FormDashboardAdmin
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -730,17 +735,16 @@
         private DataGridView dataGridViewReservas;
         private DataGridView dataGridViewRecepcionistas;
         private Button button1;
-        private Button button2;
+        private Button buttonEditarCliente;
         private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private Button buttonEliminarSala;
+        private Button buttonEditarSala;
+        private Button buttonAgregarSala;
         private Button button7;
         private Button button8;
         private Button button9;
         private Button button10;
         private Button button11;
-        private Button button12;
         private Button button13;
         private Button button14;
         private Button button15;
@@ -756,5 +760,6 @@
         private Button button18;
         private Panel panel3;
         private TextBox textBox3;
+        private Button button12;
     }
 }

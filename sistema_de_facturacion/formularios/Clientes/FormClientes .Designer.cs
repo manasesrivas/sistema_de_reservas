@@ -60,9 +60,10 @@
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(54, 52);
+            panel1.Location = new Point(29, 24);
+            panel1.Margin = new Padding(2, 1, 2, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1522, 831);
+            panel1.Size = new Size(820, 390);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -75,22 +76,25 @@
             button1.ForeColor = Color.White;
             button1.Image = Properties.Resources.save;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(246, 579);
+            button1.Location = new Point(132, 271);
+            button1.Margin = new Padding(2, 1, 2, 1);
             button1.Name = "button1";
-            button1.Size = new Size(215, 101);
+            button1.Size = new Size(144, 47);
             button1.TabIndex = 11;
             button1.Text = "Guardar";
             button1.TextAlign = ContentAlignment.MiddleRight;
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(61, 60, 60);
             panel5.Controls.Add(textBox3);
             panel5.Controls.Add(label6);
-            panel5.Location = new Point(759, 611);
+            panel5.Location = new Point(409, 286);
+            panel5.Margin = new Padding(2, 1, 2, 1);
             panel5.Name = "panel5";
-            panel5.Size = new Size(600, 92);
+            panel5.Size = new Size(323, 43);
             panel5.TabIndex = 10;
             panel5.Paint += panel5_Paint;
             // 
@@ -101,9 +105,10 @@
             textBox3.Cursor = Cursors.IBeam;
             textBox3.Font = new Font("Segoe UI", 13.875F);
             textBox3.ForeColor = Color.White;
-            textBox3.Location = new Point(17, 41);
+            textBox3.Location = new Point(9, 19);
+            textBox3.Margin = new Padding(2, 1, 2, 1);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(550, 50);
+            textBox3.Size = new Size(296, 25);
             textBox3.TabIndex = 4;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
@@ -112,9 +117,10 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.Control;
-            label6.Location = new Point(17, 8);
+            label6.Location = new Point(9, 4);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(92, 32);
+            label6.Size = new Size(45, 15);
             label6.TabIndex = 3;
             label6.Text = "Correo";
             // 
@@ -123,9 +129,10 @@
             panel4.BackColor = Color.FromArgb(61, 60, 60);
             panel4.Controls.Add(maskedTextBox1);
             panel4.Controls.Add(label2);
-            panel4.Location = new Point(759, 273);
+            panel4.Location = new Point(409, 128);
+            panel4.Margin = new Padding(2, 1, 2, 1);
             panel4.Name = "panel4";
-            panel4.Size = new Size(595, 92);
+            panel4.Size = new Size(320, 43);
             panel4.TabIndex = 9;
             panel4.Paint += panel4_Paint;
             // 
@@ -135,10 +142,11 @@
             maskedTextBox1.BorderStyle = BorderStyle.None;
             maskedTextBox1.Font = new Font("Segoe UI", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
             maskedTextBox1.ForeColor = Color.White;
-            maskedTextBox1.Location = new Point(20, 40);
+            maskedTextBox1.Location = new Point(11, 19);
+            maskedTextBox1.Margin = new Padding(2, 1, 2, 1);
             maskedTextBox1.Mask = "00000000-0";
             maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(550, 50);
+            maskedTextBox1.Size = new Size(296, 25);
             maskedTextBox1.TabIndex = 4;
             maskedTextBox1.MaskInputRejected += maskedTextBox1_MaskInputRejected;
             // 
@@ -147,9 +155,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(17, 6);
+            label2.Location = new Point(9, 3);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(57, 32);
+            label2.Size = new Size(29, 15);
             label2.TabIndex = 3;
             label2.Text = "DUI";
             label2.Click += label2_Click;
@@ -159,9 +168,10 @@
             panel3.BackColor = Color.FromArgb(61, 60, 60);
             panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(759, 94);
+            panel3.Location = new Point(409, 44);
+            panel3.Margin = new Padding(2, 1, 2, 1);
             panel3.Name = "panel3";
-            panel3.Size = new Size(600, 92);
+            panel3.Size = new Size(323, 43);
             panel3.TabIndex = 8;
             panel3.Paint += panel3_Paint;
             // 
@@ -172,9 +182,10 @@
             textBox1.Cursor = Cursors.IBeam;
             textBox1.Font = new Font("Segoe UI", 13.875F);
             textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(25, 36);
+            textBox1.Location = new Point(13, 17);
+            textBox1.Margin = new Padding(2, 1, 2, 1);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(550, 50);
+            textBox1.Size = new Size(296, 25);
             textBox1.TabIndex = 1;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -183,9 +194,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(17, 5);
+            label1.Location = new Point(9, 2);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(108, 32);
+            label1.Size = new Size(53, 15);
             label1.TabIndex = 2;
             label1.Text = "Nombre";
             label1.Click += label1_Click;
@@ -195,9 +207,10 @@
             panel2.BackColor = Color.FromArgb(61, 60, 60);
             panel2.Controls.Add(maskedTextBoxTelefono);
             panel2.Controls.Add(label4);
-            panel2.Location = new Point(759, 437);
+            panel2.Location = new Point(409, 205);
+            panel2.Margin = new Padding(2, 1, 2, 1);
             panel2.Name = "panel2";
-            panel2.Size = new Size(600, 92);
+            panel2.Size = new Size(323, 43);
             panel2.TabIndex = 8;
             // 
             // maskedTextBoxTelefono
@@ -206,10 +219,11 @@
             maskedTextBoxTelefono.BorderStyle = BorderStyle.None;
             maskedTextBoxTelefono.Font = new Font("Segoe UI", 13.875F);
             maskedTextBoxTelefono.ForeColor = Color.White;
-            maskedTextBoxTelefono.Location = new Point(21, 33);
+            maskedTextBoxTelefono.Location = new Point(11, 15);
+            maskedTextBoxTelefono.Margin = new Padding(2, 1, 2, 1);
             maskedTextBoxTelefono.Mask = "0000-0000";
             maskedTextBoxTelefono.Name = "maskedTextBoxTelefono";
-            maskedTextBoxTelefono.Size = new Size(502, 50);
+            maskedTextBoxTelefono.Size = new Size(270, 25);
             maskedTextBoxTelefono.TabIndex = 7;
             maskedTextBoxTelefono.MaskInputRejected += maskedTextBoxTelefono_MaskInputRejected;
             // 
@@ -218,31 +232,34 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.Control;
-            label4.Location = new Point(15, 6);
+            label4.Location = new Point(8, 3);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(113, 32);
+            label4.Size = new Size(56, 15);
             label4.TabIndex = 5;
             label4.Text = "Telefono";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.man;
-            pictureBox1.Location = new Point(207, 133);
+            pictureBox1.Location = new Point(111, 62);
+            pictureBox1.Margin = new Padding(2, 1, 2, 1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(306, 301);
+            pictureBox1.Size = new Size(165, 141);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // FormClientes
             // 
-            StartPosition = FormStartPosition.CenterScreen;
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(61, 60, 60);
-            ClientSize = new Size(1630, 937);
+            ClientSize = new Size(871, 451);
             Controls.Add(panel1);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "FormClientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar cliente";
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);

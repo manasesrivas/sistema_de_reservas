@@ -44,22 +44,18 @@ namespace sistema_de_reservas.Core.Dao.ClasesDao
             try
             {
                 Con = OpenDb();
-                string sql = @"SELECT Id_usuario, Nombre, Correo, Dui, Telefono FROM Usuarios";
+                string sql = @"SELECT Id_cliente, Nombre, Correo, Dui, Telefono FROM Clientes";
 
                 if (!string.IsNullOrWhiteSpace(filtro))
                 {
-                    sql = sql.Replace("/**where**/", "WHERE Nombre LIKE @r  OR Apellido LIKE @f OR DUI @f");
-                }
-                else
-                {
-                    sql = sql.Replace("/**where**/", string.Empty);
+                    sql += " WHERE Nombre LIKE @f OR Correo LIKE @f OR Dui LIKE @f OR Telefono LIKE @f";
                 }
 
                 command = new SqlCommand(sql, Con);
 
                 if (!string.IsNullOrWhiteSpace(filtro))
                 {
-                    command.Parameters.Add("@f", System.Data.SqlDbType.NVarChar, 120).Value = "%{filtro}%";
+                    command.Parameters.Add("@f", SqlDbType.NVarChar, 100).Value = $"%{filtro}%";
                 }
 
                 rd = command.ExecuteReader();
@@ -75,8 +71,41 @@ namespace sistema_de_reservas.Core.Dao.ClasesDao
                 command?.Dispose();
                 CloseDb();
             }
+
             return lista;
         }
+
+
+        public Cliente? GetById(int idCliente)
+        {
+            SqlDataReader rd = null;
+
+            try
+            {
+                Con = OpenDb();
+                command = new SqlCommand(@"
+            SELECT Id_cliente, Nombre, Correo, Dui, Telefono
+            FROM Clientes
+            WHERE Id_cliente = @id;", Con);
+
+                command.Parameters.Add("@id", SqlDbType.Int).Value = idCliente;
+                rd = command.ExecuteReader(CommandBehavior.SingleRow);
+
+                if (!rd.Read())
+                {
+                    return null;
+                }
+
+                return Map(rd);
+            }
+            finally
+            {
+                rd?.Close();
+                command?.Dispose();
+                CloseDb();
+            }
+        }
+
 
         private static Cliente Map(SqlDataReader rd)
         {
@@ -88,21 +117,64 @@ namespace sistema_de_reservas.Core.Dao.ClasesDao
                 Dui = rd.GetString(3),
                 Telefono = rd.GetString(4)
             };
+        }
 
-        }
-        public Cliente GetById(int idCliente)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public int Insert(Cliente paCliente)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Con = OpenDb();
+                command = new SqlCommand(@"
+            INSERT INTO Clientes (Nombre, Correo, Dui, Telefono)
+            OUTPUT INSERTED.Id_cliente
+            VALUES (@nombre, @correo, @dui, @telefono);", Con);
+
+                command.Parameters.Add("@nombre", SqlDbType.NVarChar, 100).Value = paCliente.Nombre;
+                command.Parameters.Add("@correo", SqlDbType.NVarChar, 100).Value = paCliente.Correo;
+                command.Parameters.Add("@dui", SqlDbType.NVarChar, 20).Value = paCliente.Dui;
+                command.Parameters.Add("@telefono", SqlDbType.NVarChar, 20).Value = paCliente.Telefono;
+
+                return (int)command.ExecuteScalar();
+            }
+            finally
+            {
+                command?.Dispose();
+                CloseDb();
+            }
         }
+
 
         public bool Update(Cliente paCliente)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Con = OpenDb();
+                command = new SqlCommand(@"
+            UPDATE Clientes
+            SET Nombre = @nombre,
+                Correo = @correo,
+                Dui = @dui,
+                Telefono = @telefono
+            WHERE Id_cliente = @id;", Con);
+
+                command.Parameters.Add("@nombre", SqlDbType.NVarChar, 100).Value = paCliente.Nombre;
+                command.Parameters.Add("@correo", SqlDbType.NVarChar, 100).Value = paCliente.Correo;
+                command.Parameters.Add("@dui", SqlDbType.NVarChar, 20).Value = paCliente.Dui;
+                command.Parameters.Add("@telefono", SqlDbType.NVarChar, 20).Value = paCliente.Telefono;
+                command.Parameters.Add("@id", SqlDbType.Int).Value = paCliente.IdCliente;
+
+                return command.ExecuteNonQuery() == 1;
+            }
+            finally
+            {
+                command?.Dispose();
+                CloseDb();
+            }
         }
+
+
+      
     }
 }

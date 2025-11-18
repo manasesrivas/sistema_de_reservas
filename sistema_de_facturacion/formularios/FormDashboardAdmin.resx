@@ -137,7 +137,7 @@
         i2vwdZ6EuUU5+CRJkiRJWvYPMrgcHDUJnBAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonEliminarSala.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAlZJREFUeF7t
         mzFOAzEURHOOdKnTUwNXSOAUlNyCjgNAH9ocghuQQ3AFNGikv9JqsBM+8Y930X+Sq0w842+vd7XWLhZJ
@@ -153,7 +153,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonEditarSala.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAnJJREFUeF7t
         mlFqFEEQQEPwIIZEP40fit5BQUGTmEvoWcScQ0+g/ggGT6KgX0ISFXxSoSc0ZXftTLp7enq3HwzsTlfX
@@ -293,7 +293,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonEditarCliente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAnJJREFUeF7t
         mlFqFEEQQEPwIIZEP40fit5BQUGTmEvoWcScQ0+g/ggGT6KgX0ISFXxSoSc0ZXftTLp7enq3HwzsTlfX

@@ -19,5 +19,11 @@
     <Compile Update="formularios\Reservaciones\FormReservaciones.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="formularios\Salas\FormSalas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="rowDataGridCustom.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

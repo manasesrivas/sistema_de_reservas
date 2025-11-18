@@ -20,9 +20,6 @@ namespace sistema_de_reservas.Core.Clases
         public decimal Costo { get => costo; set => costo = value; }
         public int Cantidad {  get => cantidad; set => cantidad = value; }
 
-        public static implicit operator Recurso(Recepcionista v)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

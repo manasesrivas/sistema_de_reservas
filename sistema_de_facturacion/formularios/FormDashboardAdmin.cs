@@ -1,21 +1,23 @@
 ﻿using Microsoft.Data.SqlClient;
+using sistema_de_reservas.Core.Clases;
+using sistema_de_reservas.Core.Dao.ClasesDao;
+using sistema_de_reservas.Core.Dao.Interfaces;
+using sistema_de_reservas.formularios.Clientes;
+using sistema_de_reservas.formularios.Recepcionistas;
+using sistema_de_reservas.formularios.Recursos;
+using sistema_de_reservas.formularios.Reservaciones;
+using sistema_de_reservas.formularios.Salas;
 using sistema_de_reservas.Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using sistema_de_reservas.formularios.Clientes;
-using sistema_de_reservas.formularios.Recepcionistas;
-using sistema_de_reservas.formularios.Reservaciones;
-using sistema_de_reservas.formularios.Recursos;
-using sistema_de_reservas.Core.Dao.ClasesDao;
-using sistema_de_reservas.Core.Clases;
-using System.Configuration;
 
 namespace sistema_de_reservas.formularios
 {
@@ -24,17 +26,20 @@ namespace sistema_de_reservas.formularios
         private int idUser;
         private RecursoDao recursoDao;
         private RecepcionistaDao recepcionistaDao;
+        private ClienteDao clienteDao;
+        private SalasDao salasDao;
+        private ReservaDao reservaDao;
         public FormDashboardAdmin(int idUser)
         {
             InitializeComponent();
             this.idUser = idUser;
 
             //cargarNombreUsuario();
-            //cargarSalas();
+            cargarSalas();
             cargarRecursos();
-            //cargarClientes();
+            cargarClientes();
             cargarUsuarios();
-            //cargarReservas();
+            cargarReservas();
 
         }
 
@@ -60,26 +65,6 @@ namespace sistema_de_reservas.formularios
             }
         }
 
-        private void cargarClientes()
-        {
-            dataGridViewClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewClientes.MultiSelect = false;
-            dataGridViewClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewClientes.DefaultCellStyle.SelectionBackColor = Color.FromArgb(156, 108, 254);
-            dataGridViewClientes.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGridViewClientes.ClearSelection();
-
-
-            dataGridViewClientes.Columns.Clear();
-            using (SqlConnection con = new SqlConnection(Conexion.cadena))
-            {
-                string query = "SELECT Id_cliente id, Nombre, Correo, Dui FROM Cliente";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridViewClientes.DataSource = dt;
-            }
-        }
 
         private void cargarUsuarios()
         {
@@ -91,25 +76,102 @@ namespace sistema_de_reservas.formularios
         }
 
 
+
+        private void cargarClientes()
+        {
+            configurationGridClientes();
+            clienteDao = new ClienteDao();
+            dataGridViewClientes.DataSource = clienteDao.GetAll();
+            dataGridViewClientes.ClearSelection();
+            dataGridViewClientes.CurrentCell = null;
+        }
+        private void configurationGridClientes() {
+
+
+            dataGridViewClientes.MultiSelect = false;
+            dataGridViewClientes.DefaultCellStyle.SelectionBackColor = Color.FromArgb(156, 108, 254);
+            dataGridViewClientes.DefaultCellStyle.ForeColor = Color.White;
+            dataGridViewClientes.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            dataGridViewClientes.AutoGenerateColumns = false;
+            dataGridViewClientes.Columns.Clear();
+
+            dataGridViewClientes.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "NombreCol",
+                HeaderText = "Nombre",
+                DataPropertyName = "Nombre",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
+
+            dataGridViewClientes.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "CorreoCol",
+                HeaderText = "Correo",
+                DataPropertyName = "Correo",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
+            dataGridViewClientes.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "DuiCol",
+                HeaderText = "DUI",
+                DataPropertyName = "Dui",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            });
+
+            dataGridViewClientes.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "TelefonoCol",
+                HeaderText = "Teléfono",
+                DataPropertyName = "Telefono",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            });
+        }
+
+        private void configurationGridReservas()
+        {
+            dataGridViewReservas.MultiSelect = false;
+            dataGridViewReservas.DefaultCellStyle.SelectionBackColor = Color.FromArgb(156, 108, 254);
+            dataGridViewReservas.DefaultCellStyle.ForeColor = Color.White;
+            dataGridViewReservas.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            dataGridViewReservas.AutoGenerateColumns = false;
+            dataGridViewReservas.Columns.Clear();
+
+            dataGridViewReservas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "NombreCol",
+                HeaderText = "Cliente",
+                DataPropertyName = "NombreCliente",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
+
+            dataGridViewReservas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "CorreoCol",
+                HeaderText = "Sala",
+                DataPropertyName = "NombreSala",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
+            dataGridViewReservas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "DuiCol",
+                HeaderText = "Fecha",
+                DataPropertyName = "FechaReservado",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            });
+
+        }
+
         private void cargarReservas()
         {
-            dataGridViewReservas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewReservas.MultiSelect = false;
-            dataGridViewReservas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewReservas.DefaultCellStyle.SelectionBackColor = Color.FromArgb(156, 108, 254);
-            dataGridViewReservas.DefaultCellStyle.SelectionForeColor = Color.White;
-            using (SqlConnection con = new SqlConnection(Conexion.cadena))
-            {
-                string query = @"SELECT r.Id, c.Nombre AS Cliente, s.Nombre AS Sala, 
-                                        r.FechaInicio, r.FechaFin, r.Tipo, r.Estado
-                                 FROM Reservas r
-                                 JOIN Cliente c ON r.ClienteId = c.Id_cliente
-                                 JOIN Salas s ON r.SalaId = s.Id_salas";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridViewReservas.DataSource = dt;
-            }
+            configurationGridReservas();
+            reservaDao = new ReservaDao();
+            dataGridViewReservas.DataSource = reservaDao.GetAll();
+            dataGridViewReservas.ClearSelection();
+            dataGridViewReservas.CurrentCell = null;
         }
         private void cargarRecursos()
         {
@@ -124,28 +186,54 @@ namespace sistema_de_reservas.formularios
 
         }
 
+
+
         private void cargarSalas()
+        {
+            configurationGridSalas();
+            salasDao = new SalasDao();
+            dataGridViewSalas.DataSource = salasDao.GetAll();
+            dataGridViewSalas.ClearSelection();
+            dataGridViewSalas.CurrentCell = null;
+        }
+
+        private void configurationGridSalas()
         {
             dataGridViewSalas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewSalas.MultiSelect = false;
-            dataGridViewSalas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewSalas.DefaultCellStyle.SelectionBackColor = Color.FromArgb(156, 108, 254);
-            dataGridViewSalas.DefaultCellStyle.SelectionForeColor = Color.White;
-            using (SqlConnection con = new SqlConnection(Conexion.cadena))
+            dataGridViewSalas.DefaultCellStyle.ForeColor = Color.White;
+            dataGridViewSalas.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            dataGridViewSalas.AutoGenerateColumns = false;
+            dataGridViewSalas.Columns.Clear();
+
+
+            dataGridViewSalas.Columns.Add(new DataGridViewTextBoxColumn
             {
-                string query = "SELECT Id_salas, Nombre, Capacidad, Disponible FROM Salas";
-                SqlDataAdapter da = new SqlDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridViewSalas.DataSource = dt;
-            }
+                Name = "NombreCol",
+                HeaderText = "Nombre",
+                DataPropertyName = "Nombre",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+            dataGridViewSalas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "CapacidadCol",
+                HeaderText = "Capacidad",
+                DataPropertyName = "Capacidad",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+            dataGridViewSalas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "DiponibleCol",
+                HeaderText = "Disponible",
+                DataPropertyName = "Disponible",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
         }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             FormClientes form = new FormClientes();
-            form.Show();
+            form.ShowDialog();
             cargarClientes();
         }
 
@@ -153,7 +241,8 @@ namespace sistema_de_reservas.formularios
         private void button12_Click(object sender, EventArgs e)
         {
             FormReservaciones form = new FormReservaciones();
-            form.Show();
+            form.ShowDialog();
+            cargarReservas();
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -347,6 +436,8 @@ namespace sistema_de_reservas.formularios
             form.ShowDialog();
             cargarRecursos();
         }
+
+
         private int? GetIdSeleccionadoRecepcionista()
         {
             if (dataGridViewRecepcionistas.CurrentRow == null)
@@ -400,8 +491,221 @@ namespace sistema_de_reservas.formularios
 
             catch (Exception ex)
             {
-                MessageBox.Show("error inesperado"+ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("error inesperado" + ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var id = GetIdSeleccionadoCliente();
+            if (!id.HasValue)
+            {
+                MessageBox.Show("Seleccione una fila");
+                return;
+            }
+            var respuesta = MessageBox.Show(
+                "Quieres eliminar este registro?", "confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question
+            );
+
+            if (respuesta == DialogResult.No) return;
+
+            try
+            {
+                if (clienteDao.Delete(id.Value))
+                {
+                    cargarClientes();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se pudo eliminar el registro",
+                        "aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("error inesperado" + ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonEditarCliente_Click(object sender, EventArgs e)
+        {
+            var id = GetIdSeleccionadoCliente();
+            if (!id.HasValue)
+            {
+                MessageBox.Show("Seleccione una fila");
+                return;
+            }
+
+            FormClientes form = new FormClientes(id.Value);
+            form.ShowDialog();
+            cargarClientes();
+        }
+
+        private int? GetIdSeleccionadoCliente()
+        {
+            if (dataGridViewClientes.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            if (dataGridViewClientes.CurrentRow.DataBoundItem is Cliente cliente)
+            {
+                return cliente.IdCliente;
+            }
+
+            return null;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FormClientes form = new FormClientes();
+            form.ShowDialog();
+            cargarClientes();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var id = GetIdSeleccionadoCliente();
+            if (!id.HasValue)
+            {
+                MessageBox.Show("Seleccione una fila");
+                return;
+            }
+            var respuesta = MessageBox.Show(
+                "Quieres eliminar este registro?", "confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question
+            );
+
+            if (respuesta == DialogResult.No) return;
+
+            try
+            {
+                if (clienteDao.Delete(id.Value))
+                {
+                    cargarClientes();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se pudo eliminar el registro",
+                        "aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("error inesperado" + ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var id = GetIdSeleccionadoCliente();
+            if (!id.HasValue)
+            {
+                MessageBox.Show("Seleccione una fila");
+                return;
+            }
+
+            FormClientes form = new FormClientes(id.Value);
+            form.ShowDialog();
+            cargarClientes();
+        }
+
+        private void buttonEliminarSala_Click(object sender, EventArgs e)
+        {
+            var id = GetIdSeleccionadoSalas();
+            if (!id.HasValue)
+            {
+                MessageBox.Show("Seleccione una fila");
+                return;
+            }
+            var respuesta = MessageBox.Show(
+                "Quieres eliminar este registro?", "confirmar",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question
+            );
+
+            if (respuesta == DialogResult.No) return;
+
+            try
+            {
+                if (salasDao.Delete(id.Value))
+                {
+                    cargarSalas();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se pudo eliminar el registro",
+                        "aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message, "aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("error inesperado" + ex.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonEditarSala_Click(object sender, EventArgs e)
+        {
+            var id = GetIdSeleccionadoSalas();
+            if (!id.HasValue)
+            {
+                MessageBox.Show("Seleccione una fila");
+                return;
+            }
+
+            FormSalas form = new FormSalas(id.Value);
+            form.ShowDialog();
+            cargarSalas();
+        }
+
+        private void buttonAgregarSala_Click(object sender, EventArgs e)
+        {
+            FormSalas form = new FormSalas();
+            form.ShowDialog();
+            cargarSalas();
+        }
+
+        private int? GetIdSeleccionadoSalas()
+        {
+            if (dataGridViewSalas.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un registro", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            if (dataGridViewSalas.CurrentRow.DataBoundItem is Sala salas)
+            {
+                return salas.IdSalas;
+            }
+
+            return null;
         }
     }
 
